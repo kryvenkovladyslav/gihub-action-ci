@@ -7,6 +7,13 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:
+    inputs:
+      test_input:
+        description: 'Test Message'
+        default: 'Default Test Message'
+        required: true
+        type: string
 
 env:
   application_name: ConsoleApp
@@ -16,6 +23,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Restore Packages
+        run: echo "Sending Test Message from Input ${{ inputs.test_input }}"
+
       - uses: actions/checkout@v4
 
       - name: Setup .NET
