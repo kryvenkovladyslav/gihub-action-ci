@@ -23,14 +23,14 @@ jobs:
           dotnet-version: 6.0.x
 
       - name: Restore Packages
-        run: dotnet restore
+        run: dotnet restore ${{ env.project_name }}/${{ env.project_name }}.csproj
 
       - name: Build
         run: dotnet build --no-restore
 
       - name: Test
         run: dotnet test --no-build --verbosity normal
-        
+
       - name: Upload to Build Artifact
         uses: actions/upload-artifact@v4
         with:
