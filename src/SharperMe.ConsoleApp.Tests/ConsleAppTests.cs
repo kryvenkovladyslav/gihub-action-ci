@@ -5,6 +5,6 @@ public class ConsleAppTests
     [Fact]
     public void Test_ConsoleApp_ReturnTrue()
     {
-        Assert.True(true);
+        Assert.True(false);
     }
 }
