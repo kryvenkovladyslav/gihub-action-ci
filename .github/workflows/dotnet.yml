@@ -9,7 +9,8 @@ on:
       - main
 
 env:
-  project_name: dotnet-app
+  application_name: ConsoleApp
+  project_name: SharperMe
 
 jobs:
   build:
@@ -23,16 +24,17 @@ jobs:
           dotnet-version: 6.0.x
 
       - name: Restore Packages
-        run: dotnet restore ${{ env.project_name }}/${{ env.project_name }}.csproj
+        run: dotnet restore src/${{ env.project_name }}.${{ env.application_name }}/${{ env.project_name }}.${{ env.application_name }}.csproj
 
       - name: Build
-        run: dotnet build --no-restore
+        run: dotnet build src/${{ env.project_name }}.${{ env.application_name }}/${{ env.project_name }}.${{ env.application_name }}.csproj --no-restore
 
       - name: Test
-        run: dotnet test --no-build --verbosity normal
+        run: dotnet test src/${{ env.project_name }}.${{ env.application_name }}.Tests/${{ env.project_name }}.${{ env.application_name }}.Tests.csproj --no-build --verbosity normal
 
       - name: Upload to Build Artifact
         uses: actions/upload-artifact@v4
         with:
-          path: ${{ github.workspace }}/${{ env.project_name }}/bin/Debug/net6.0/${{ env.project_name }}.dll
+          name: ${{ env.project_name }}.${{ env.application_name }}
+          path: src/${{ env.project_name }}.${{ env.application_name }}/bin/Debug/net6.0/${{ env.project_name }}.${{ env.application_name }}.dll
 
