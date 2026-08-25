@@ -7,4 +7,11 @@ public class ConsleAppTests
     {
         Assert.True(true);
     }
+
+    [Fact]
+    public void Test_Sum_ReturnTwo()
+    {
+        var result = Program.Sum(1, 2);
+        Assert.Equal(2, result);
+    }
 }
