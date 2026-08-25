@@ -30,7 +30,7 @@ jobs:
         run: dotnet build src/${{ env.project_name }}.${{ env.application_name }}/${{ env.project_name }}.${{ env.application_name }}.csproj --no-restore
 
       - name: Test
-        run: dotnet test src/${{ env.project_name }}.${{ env.application_name }}.Tests/${{ env.project_name }}.${{ env.application_name }}.Tests.csproj --no-build --verbosity normal
+        run: dotnet test src/${{ env.project_name }}.${{ env.application_name }}.Tests/${{ env.project_name }}.${{ env.application_name }}.Tests.csproj
 
       - name: Upload to Build Artifact
         uses: actions/upload-artifact@v4
