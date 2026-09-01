@@ -1,6 +1,7 @@
 <Solution>
   <Folder Name="/src/">
     <Project Path="SharperMe.ConsoleApp/SharperMe.ConsoleApp.csproj" />
+    <Project Path="SharperMe.WebApp/SharperMe.WebApp.csproj" />
   </Folder>
   <Folder Name="/tests/">
     <Project Path="SharperMe.ConsoleApp.Tests/SharperMe.ConsoleApp.Tests.csproj" />
